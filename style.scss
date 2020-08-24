@@ -1,0 +1,65 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  // position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 100px;
+  width: 80%;
+  background-color: #ddd;
+  border-radius: 20px;
+  overflow: hidden;
+
+  .image-row {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    width: 100%;
+    transition: justify-content ease 0.5s;
+
+    .img-block {
+      width: 300px;
+      height: 300px;
+      margin: 3px;
+      transition: 90ms;
+      border-radius: 5px;
+      overflow: hidden;
+      cursor: grab;
+
+      .img {
+        display: flex;
+        justify-content: space-between;
+        width: 300px;
+        height: 300px;
+      }
+
+      .left {
+        width: 40%;
+        height: 100%;
+      }
+      .right {
+        width: 40%;
+        height: 100%;
+      }
+    }
+
+    // $imgPath: "../src/";
+    // @for $i from 1 through 3 {
+    //   .img-#{$i} {
+    //     background: url("#{$imgPath}img-#{$i}.jpg");
+    //     background-size: cover;
+    //   }
+    // }
+  }
+}
