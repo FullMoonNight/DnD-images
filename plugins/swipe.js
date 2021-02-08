@@ -51,21 +51,30 @@ const $imgBlock = document.querySelector(".content");
       currentDragElem.style.display = "none";
       let currentDropElem = document.elementFromPoint(evt.clientX, evt.clientY);
       currentDragElem.style.display = "";
-      if (currentDropElem.dataset.type === "swipe" && currentDropElem != dropElem && currentDropElem.closest(".img-block") != imgCopy) swipeImage(currentDropElem);
+      if (
+        currentDropElem.dataset.type === "swipe" &&
+        currentDropElem != dropElem &&
+        currentDropElem.closest(".img-block") != imgCopy
+      )
+        swipeImage(currentDropElem);
       dropElem = currentDropElem;
     }
 
     document.addEventListener("mousemove", onMouseMove);
 
-    image.addEventListener("mouseup", (event) => {
-      document.removeEventListener("mousemove", onMouseMove);
-      currentDragElem.style.cssText = "";
-      currentDragElem.querySelector(".img").style.cssText += `
+    document.addEventListener(
+      "mouseup",
+      (event) => {
+        document.removeEventListener("mousemove", onMouseMove);
+        currentDragElem.style.cssText = "";
+        currentDragElem.querySelector(".img").style.cssText += `
       width: 300px;
       height: 300px;`;
-      currentDragElem.remove();
-      imgCopy.after(currentDragElem);
-      imgCopy.remove();
-    });
+        currentDragElem.remove();
+        imgCopy.after(currentDragElem);
+        imgCopy.remove();
+      },
+      { once: true }
+    );
   });
 });
